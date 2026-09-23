@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediBook — bilingual healthcare appointment platform portfolio demo.">
+  <title>MediBook | Healthcare Booking</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <img src="assets/logo.svg" alt="">
+    <span>MediBook</span>
+  </div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <img src="assets/logo.svg" alt="MediBook logo">
+        <span>MediBook</span>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#home" data-i18n="nav.home">Home</a>
+        <a href="#doctors" data-i18n="nav.doctors">Doctors</a>
+        <a href="#appointments" data-i18n="nav.appointments">Appointments</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <button id="langEN" class="active">EN</button>
+          <button id="langPT">PT</button>
+        </div>
+        <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+          <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>
+        </button>
+        <button class="mobile-menu" id="mobileMenu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" data-i18n="nav.home">Home</a>
+      <a href="#doctors" data-i18n="nav.doctors">Doctors</a>
+      <a href="#appointments" data-i18n="nav.appointments">Appointments</a>
+      <a href="#how" data-i18n="nav.how">How it works</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow" data-i18n="hero.eyebrow">SMART HEALTHCARE BOOKING</span>
+          <h1 data-i18n="hero.title">Find the right doctor. Book in minutes.</h1>
+          <p data-i18n="hero.text">Search specialists, compare availability and manage appointments from one simple platform.</p>
+
+          <div class="hero-search">
+            <label>
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input id="heroSearch" type="search" placeholder="Search doctor or specialty">
+            </label>
+            <select id="heroSpecialty">
+              <option value="all">All specialties</option>
+              <option value="general">General Medicine</option>
+              <option value="cardiology">Cardiology</option>
+              <option value="dermatology">Dermatology</option>
+              <option value="pediatrics">Pediatrics</option>
+            </select>
+            <a class="primary-btn" href="#doctors" data-i18n="hero.cta">Find doctors</a>
+          </div>
+
+          <div class="trust-row">
+            <div><strong>24/7</strong><span data-i18n="hero.support">Booking access</span></div>
+            <div><strong>6+</strong><span data-i18n="hero.specialists">Specialists</span></div>
+            <div><strong>4.9</strong><span data-i18n="hero.rating">Average rating</span></div>
+          </div>
+        </div>
+
+        <div class="hero-art reveal">
+          <img src="assets/illustrations/hero.svg" alt="Healthcare booking illustration">
+          <div class="floating-card card-one">
+            <span class="status-dot"></span>
+            <div><strong data-i18n="hero.available">Doctor available</strong><small data-i18n="hero.today">Today at 15:30</small></div>
+          </div>
+          <div class="floating-card card-two">
+            <span>✓</span>
+            <div><strong data-i18n="hero.confirmed">Booking confirmed</strong><small data-i18n="hero.instant">Instant confirmation</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="specialty-strip">
+      <div class="container specialty-grid">
+        <button data-specialty="general"><span>🩺</span><b data-i18n="specialties.general">General Medicine</b></button>
+        <button data-specialty="cardiology"><span>❤</span><b data-i18n="specialties.cardiology">Cardiology</b></button>
+        <button data-specialty="dermatology"><span>◌</span><b data-i18n="specialties.dermatology">Dermatology</b></button>
+        <button data-specialty="pediatrics"><span>👶</span><b data-i18n="specialties.pediatrics">Pediatrics</b></button>
+      </div>
+    </section>
+
+    <section class="section" id="doctors">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-i18n="doctors.eyebrow">SPECIALISTS</span>
+            <h2 data-i18n="doctors.title">Choose a doctor that fits your needs.</h2>
+          </div>
+          <p data-i18n="doctors.text">Filter by specialty, availability and experience.</p>
+        </div>
+
+        <div class="filter-row">
+          <div class="chips" id="specialtyChips">
+            <button class="chip active" data-filter="all" data-i18n="filter.all">All</button>
+            <button class="chip" data-filter="general" data-i18n="specialties.general">General Medicine</button>
+            <button class="chip" data-filter="cardiology" data-i18n="specialties.cardiology">Cardiology</button>
+            <button class="chip" data-filter="dermatology" data-i18n="specialties.dermatology">Dermatology</button>
+            <button class="chip" data-filter="pediatrics" data-i18n="specialties.pediatrics">Pediatrics</button>
+          </div>
+          <select id="sortDoctors">
+            <option value="rating" data-i18n="sort.rating">Top rated</option>
+            <option value="experience" data-i18n="sort.experience">Most experienced</option>
+            <option value="price" data-i18n="sort.price">Lowest price</option>
+          </select>
+        </div>
+
+        <div class="doctor-grid" id="doctorGrid"></div>
+        <div class="empty-state hidden" id="doctorEmpty">
+          <h3 data-i18n="doctors.emptyTitle">No doctors found</h3>
+          <p data-i18n="doctors.emptyText">Try another search or specialty.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section soft-section" id="appointments">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow" data-i18n="appointments.eyebrow">YOUR SCHEDULE</span>
+            <h2 data-i18n="appointments.title">Upcoming appointments</h2>
+          </div>
+          <p data-i18n="appointments.text">Appointments booked in this demo are saved locally in your browser.</p>
+        </div>
+
+        <div class="appointment-layout">
+          <div class="appointment-list" id="appointmentList"></div>
+          <aside class="appointment-summary">
+            <span class="eyebrow" data-i18n="appointments.summaryLabel">SUMMARY</span>
+            <h3 data-i18n="appointments.summaryTitle">Your health schedule</h3>
+            <div class="summary-stat"><span data-i18n="appointments.total">Total bookings</span><strong id="appointmentCount">0</strong></div>
+            <div class="summary-stat"><span data-i18n="appointments.next">Next appointment</span><strong id="nextAppointment">—</strong></div>
+            <button class="secondary-btn full" id="clearAppointments" data-i18n="appointments.clear">Clear demo bookings</button>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head compact">
+          <div>
+            <span class="eyebrow" data-i18n="how.eyebrow">HOW IT WORKS</span>
+            <h2 data-i18n="how.title">Three steps from search to appointment.</h2>
+          </div>
+        </div>
+
+        <div class="steps-grid">
+          <article>
+            <span class="step-number">01</span>
+            <div class="step-icon">⌕</div>
+            <h3 data-i18n="how.step1Title">Find a specialist</h3>
+            <p data-i18n="how.step1Text">Search by doctor name or medical specialty.</p>
+          </article>
+          <article>
+            <span class="step-number">02</span>
+            <div class="step-icon">▣</div>
+            <h3 data-i18n="how.step2Title">Choose a time</h3>
+            <p data-i18n="how.step2Text">Select an available appointment slot.</p>
+          </article>
+          <article>
+            <span class="step-number">03</span>
+            <div class="step-icon">✓</div>
+            <h3 data-i18n="how.step3Title">Confirm booking</h3>
+            <p data-i18n="how.step3Text">Save the appointment and manage it from your schedule.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#home"><img src="assets/logo.svg" alt=""><span>MediBook</span></a>
+        <p data-i18n="footer.demo">Healthcare booking demo created for a developer portfolio.</p>
+      </div>
+      <div><h4 data-i18n="footer.product">Product</h4><a href="#doctors" data-i18n="nav.doctors">Doctors</a><a href="#appointments" data-i18n="nav.appointments">Appointments</a></div>
+      <div><h4 data-i18n="footer.note">Demo note</h4><p data-i18n="footer.noMedical">No real medical service or consultation is provided.</p></div>
+    </div>
+    <div class="container footer-bottom"><span>© <span id="year"></span> MediBook</span><span>Portfolio project · EN / PT</span></div>
+  </footer>
+
+  <div class="modal" id="doctorModal">
+    <div class="modal-card doctor-modal-card">
+      <button class="modal-close" data-close="doctorModal">×</button>
+      <div id="doctorModalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal" id="bookingModal">
+    <div class="modal-card booking-card">
+      <button class="modal-close" data-close="bookingModal">×</button>
+      <span class="eyebrow" data-i18n="booking.eyebrow">BOOK APPOINTMENT</span>
+      <h2 id="bookingDoctorName">Doctor</h2>
+      <form id="bookingForm">
+        <input type="hidden" name="doctorId" id="bookingDoctorId">
+        <label><span data-i18n="booking.name">Patient name</span><input name="patient" required placeholder="Your name"></label>
+        <div class="form-grid">
+          <label><span data-i18n="booking.date">Date</span><input type="date" name="date" id="bookingDate" required></label>
+          <label><span data-i18n="booking.time">Time</span>
+            <select name="time" required>
+              <option>09:00</option><option>10:30</option><option>12:00</option><option>14:00</option><option>15:30</option><option>17:00</option>
+            </select>
+          </label>
+        </div>
+        <label><span data-i18n="booking.type">Consultation type</span>
+          <select name="type">
+            <option value="clinic" data-i18n="booking.clinic">Clinic visit</option>
+            <option value="video" data-i18n="booking.video">Video consultation</option>
+          </select>
+        </label>
+        <button class="primary-btn full" type="submit" data-i18n="booking.confirm">Confirm appointment</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/app.js"></script>
+</body>
+</html>
