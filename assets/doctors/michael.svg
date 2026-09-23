@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="36" fill="#FFF0DE"/>
+    <circle cx="60" cy="44" r="24" fill="#B96F23" opacity=".18"/>
+    <path d="M23 105c5-26 19-39 37-39s32 13 37 39" fill="#B96F23" opacity=".18"/>
+    <circle cx="60" cy="47" r="17" fill="#B96F23" opacity=".12"/>
+    <text x="60" y="69" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#B96F23">MK</text>
+    </svg>
