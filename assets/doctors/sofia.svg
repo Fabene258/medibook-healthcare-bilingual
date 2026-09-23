@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+    <rect width="120" height="120" rx="36" fill="#FBE8F4"/>
+    <circle cx="60" cy="44" r="24" fill="#9A4F7D" opacity=".18"/>
+    <path d="M23 105c5-26 19-39 37-39s32 13 37 39" fill="#9A4F7D" opacity=".18"/>
+    <circle cx="60" cy="47" r="17" fill="#9A4F7D" opacity=".12"/>
+    <text x="60" y="69" text-anchor="middle" font-family="Arial" font-size="30" font-weight="700" fill="#9A4F7D">SR</text>
+    </svg>
